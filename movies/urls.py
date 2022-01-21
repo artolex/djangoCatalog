@@ -5,8 +5,9 @@ from . import views
 # pages altında oluşturulmuş urls ayarları ana urls.py dosyasında da göstermek gerekir.
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('about', views.about, name='about')
+    path('', views.index, name='movies'),
+    path('<int:movie_id>', views.detail, name='detail'),
+    path('search', views.search, name='search'),
 ]
 # views.py altındaki index ve about fonksiyonlarını çağırır
 # path url belirtir. boş ise index about dediğimizde localhost/about olarak çalışır.
