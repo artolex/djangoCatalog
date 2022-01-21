@@ -62,3 +62,36 @@ Html tagleri içinde aşağıdaki gibi dinamik css verebiliriz.Örnek _navbar.ht
                 class="nav-item"
             {% endif %}
             
+
+----------
+DATABASES
+
+--------
+
+mevcutta sqlite databasei geliyor. mySQL vb ile çalışmak için authentication ve host bilgilerini yazmak gerekiyor
+official dökümanlarda databases altında örnek eklemeler bulunabilir.
+
+manage.py migrate komutu ile DB içerisine mevcutta olan APPlerin (admin,auth) gibi tabloları otomatik gelir.
+
+admin paneli localhost:8000/admin yazınca direk gelir. giriş yapmak için kullanıcı oluşturmak gerekiyor
+
+manage.py createsuperuser
+komutuyla kullanıcı oluşturulabilir.
+
+
+-------
+MODELS
+
+-----
+DB de tablo olarak oluşacak olan modeller app altındaki models.py içinde bir class oluşturularak uygulanır.
+official dökümanlarda model field reference altında data türleri vb. örnekler görülebilir.
+
+model oluşturulduktan sonra admin.py içinde register edilmesi gerekir. Buraya import edip register ederiz.
+Register işleminden sonra DBye bu model için kayıtları açıcak kodları ekleyip migrate komutuyla tekrar migrate yapılması gerekir.
+
+manage.py makemigrations -> komutuyla oluşan model için migration dosyası oluşturulur
+manage.py migrate -> diyerek oluşan dosyayı veritabanında yeni kayıtlar olarak açar.
+
+
+DB işlemlerini Select sorguları vb. yazmadan model üzerinde daha önceden tanımlanmış methodları kullanarak yapacağız.
+Bu yapılara ORM (object relational mapping) denir.
