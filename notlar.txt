@@ -1,0 +1,64 @@
+manage.py dosyası projeyi konsoldan çalıştırırken kullanılan kısım.
+
+__init__.py projenin bir paket olduğunu ve diğer projelerle çalışabileceğini eklenebileceğini belirtir.
+
+settings.py uygulama ayarlarının vb. bulunduğu kısım. Uygulama eklenmesi burada yapılır. DB gibi ayarları burada yapılır
+
+urls.py altında url ayarları yapılır
+
+wsgi.py server yapılandırması için kullanılır.
+
+python3 manage.py startapp pages -> sayfalar isminde yeni app ekledik. djangoda APP ekleyerek yapılıyor.
+NOT: Böyle app eklendiğinde main settings.py altındaki INSTALLED_APPS arrayine import edilmesi gerekiyor!!
+
+python3 manage.py runserver -> web sitenin çalışmasını sağlar
+
+HTML dosyalarımız için templates adında klasör oluşturduk ve ana proje settings altındaki TEMPLATES 
+değişkenine 'DIRS': [os.path.join(BASE_DIR,'templates')] DIRS olan keye yandaki gibi dosyayı tanıttık.
+-----------
+
+SAYFA YAPISI ---
+
+----------
+MasterPage mantığında layout.html oluşturduk. templates altında ve body içinne
+{% block content %}
+
+{% endblock %}
+
+yazarak aslında sayfanın değişecek kısımlarını alıcaz sadece. diğer sayfalarda 
+{% extends 'layout.html' %}
+{% block content %}
+    <h1>Başlık</h1>
+{% endblock %}
+şeklinde değişen kısımları ekliyoruz.
+
+--------
+STATIC DOSYALAR -- CSS VB.
+-------
+static dosyalar APP import ediliyor. defaultta edilmiş geliyor.
+STATIC_URL değişkeni altında belirtilmiş. (settings.py)
+
+static dosyaları kullanıcağımız sayfada aşağıdaki gibi sayfanın en üstünde
+{% load static %}
+komutu kullanırız
+daha sonra aşağıda örnek css importu var. tüm static dosyalarının altında css dosyası altında style.css i arar.
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+Eğer her app (klasör) için static dosyası oluşturmak istemiyor ve root folderda 1 tane static dosyası oluşturmak istiyorsak
+settings.py altına aşağıdaki kodu ekleyip static dosyasını root foldera atmak gerekiyor.
+
+------
+SAYFA YAPISI 
+------
+Navbar, footer gibi aslında statik olan şeyleride templates altında partials diye klasör açıp
+oraya navbar.html ve footer.html olarak 2 tane dosyayla ekledik. Bu şekilde tüm sayfaları bölebiliriz.
+ {% include 'partials/_navbar.html'%}
+koduyla layout.html içinde istediğimiz yere import edebiliriz.
+
+Html tagleri içinde aşağıdaki gibi dinamik css verebiliriz.Örnek _navbar.html de
+            {% if request.path == "/" %}
+                class="nav-item active"
+            {% else %}
+                class="nav-item"
+            {% endif %}
+            
