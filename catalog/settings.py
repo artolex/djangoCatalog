@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'movies',  # böyle de çalışıyor.
     'pages',
+    'user',
     # 'movies.apps.MoviesConfig',
     # 'pages.apps.PagesConfig',  # Kendi oluşturduğumuz APP i import ettik.
     'django.contrib.admin',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

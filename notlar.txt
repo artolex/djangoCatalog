@@ -95,3 +95,22 @@ manage.py migrate -> diyerek oluşan dosyayı veritabanında yeni kayıtlar olar
 
 DB işlemlerini Select sorguları vb. yazmadan model üzerinde daha önceden tanımlanmış methodları kullanarak yapacağız.
 Bu yapılara ORM (object relational mapping) denir.
+
+
+-----------
+DİNAMİK SAYFA OLUŞTURMA 
+
+----------
+
+ilgili sayfanın views.py render methoduna context verisi eklenerek o sayfaya veri gönderilebilir. {{ key }} şeklinde gönderilen veri sayfada kullanılır.
+
+{% for movie in movies %}
+    html içinde for döngüsü
+{% endfor %}
+
+-aşağıda if else örneği var
+{% if movies %}
+
+{% else %}
+
+{% endif %}

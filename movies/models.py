@@ -16,3 +16,8 @@ class Movie(models.Model):
     def __str__(self):
         return self.name
     # Obje çağırıldığında yönetim panelinde __str__ objenin ismi olduğu için direk adını yazmasını sağlarız
+
+
+    # htmlde img pathi vermek için bu fonksiyonu kullanıyoruz. movie objesinin altında get_image_path
+    def get_image_path(self):
+        return "/img/" + self.image
