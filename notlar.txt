@@ -114,3 +114,11 @@ ilgili sayfanın views.py render methoduna context verisi eklenerek o sayfaya ve
 {% else %}
 
 {% endif %}
+
+
+-----
+MESSAGES
+-----
+
+Mesaj göstermek için contrib altındaki messages kütüphanesini import edip mesajları oluşturduk.
+oluşan mesaj taglarını değiştirmek için settigns altında ayar yaptık. bu tagleri dinamik css için kullanabiliriz.
