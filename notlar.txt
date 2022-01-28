@@ -137,3 +137,16 @@ oluşan mesaj taglarını değiştirmek için settigns altında ayar yaptık. bu
 urls altında
 path('actionUrl/', views.sendEmail,name='actionUrl')
 views altında sendEmail fonksiyonu olmalı
+
+
+-----
+TEMPLATE TAGS
+-----
+Oluşturulan app altında (örn pages)
+templatetags diye klasör oluşturulur.
+bu klasör içine __init__.py eklenmek zorundadır.
+daha sonra içine istediğimiz kadar template ekleyip örn. decoder.py diye ekleyip bir fonksiyon oluşturduk
+{% load decoder %}
+ile htmlde load ettik.
+
+{{ value | oluşturulan_fonksiyon }} şeklinde çağırılabilir.
