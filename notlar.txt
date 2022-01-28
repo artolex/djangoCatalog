@@ -40,6 +40,12 @@ STATIC DOSYALAR -- CSS VB.
 static dosyalar APP import ediliyor. defaultta edilmiş geliyor.
 STATIC_URL değişkeni altında belirtilmiş. (settings.py)
 
+Root folderda static diye dosya açtıysak aşağıdaki şekilde settings.py de belirtmemiz gerekiyor.
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+
 static dosyaları kullanıcağımız sayfada aşağıdaki gibi sayfanın en üstünde
 {% load static %}
 komutu kullanırız
