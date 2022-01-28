@@ -122,3 +122,10 @@ MESSAGES
 
 Mesaj göstermek için contrib altındaki messages kütüphanesini import edip mesajları oluşturduk.
 oluşan mesaj taglarını değiştirmek için settigns altında ayar yaptık. bu tagleri dinamik css için kullanabiliriz.
+
+
+
+<button name="button" type="submit" onclick="location.href='{% url "actionUrl" %}'"> Send</button>
+urls altında
+path('actionUrl/', views.sendEmail,name='actionUrl')
+views altında sendEmail fonksiyonu olmalı
