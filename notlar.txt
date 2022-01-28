@@ -1,3 +1,5 @@
+django-admin startproject <projectName> şeklinde proje oluşturulur.
+
 manage.py dosyası projeyi konsoldan çalıştırırken kullanılan kısım.
 
 __init__.py projenin bir paket olduğunu ve diğer projelerle çalışabileceğini eklenebileceğini belirtir.
